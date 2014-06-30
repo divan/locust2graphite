@@ -18,13 +18,13 @@ const (
 )
 
 var (
-	locust   = flag.String("locust", "http://10.51.110.41:8089", "Locust host")
-	addr     = flag.String("host", "graphite.divan", "Graphite host")
+	locust   = flag.String("locust", "http://my.locust.host:8089", "Locust host")
+	addr     = flag.String("host", "my.graphite.host", "Graphite host")
 	port     = flag.Int("port", 2003, "Graphite port")
 	interval = flag.Duration("interval", 1*time.Second, "Interval for sending stats")
 
 	hostname, _ = os.Hostname()
-	statsBase   = fmt.Sprintf("stats.%s.rest_api.", hostname)
+	statsBase   = fmt.Sprintf("stats.%s.locust.", hostname)
 	graphite    *graph.Graphite
 )
 
